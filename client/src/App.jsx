@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import DisplayPannel from "./components/DisplayPannel";
+import OutsideButton from "./components/OutsideButton";
+import InsideButtons from "./components/InsideButtons";
+import { response } from "../data/sample";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  const [out, setOut] = useState(true);
+  const floors = [true, false, true, false];
+  const currentFloor = 2;
+  const direction = "up";
+  const load = 4;
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="h-screen w-screen bg-indigo-300 flex justify-center items-center">
+      <div className="h-3/4 w-3/4 shadow-md bg-indigo-500">
+        <DisplayPannel
+          currentFloor={currentFloor}
+          direction={direction}
+          load={load}
+        />
+        <div>{out ? <OutsideButton /> : <InsideButtons floors={floors} />}</div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
