@@ -22,13 +22,8 @@ const App = () => {
   const direction = "up";
   const load = 4;
   return (
-<<<<<<< HEAD
-    <div className="h-screen w-screen relative bg-indigo-300 flex justify-center items-center">
-      <div className="h-3/4 w-3/4 shadow-md bg-indigo-500">
-=======
     <div className="h-screen w-screen bg-indigo-300 flex justify-center items-center">
       <div className="h-3/4 w-3/4 shadow-lg bg-indigo-500 rounded-2xl">
->>>>>>> c556464 (finished display)
         <DisplayPannel
           currentFloor={currentFloor}
           direction={direction}
