@@ -5,20 +5,33 @@ import InsideButtons from "./components/InsideButtons";
 import { response } from "../data/sample";
 
 const App = () => {
-  const [out, setOut] = useState(true);
-  const floors = [true, false, true, false];
+  const [out, setOut] = useState(false);
+  const floors = [
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+  ];
   const currentFloor = 2;
   const direction = "up";
   const load = 4;
   return (
-    <div className="h-screen w-screen bg-indigo-300 flex justify-center items-center">
+    <div className="h-screen w-screen relative bg-indigo-300 flex justify-center items-center">
       <div className="h-3/4 w-3/4 shadow-md bg-indigo-500">
         <DisplayPannel
           currentFloor={currentFloor}
           direction={direction}
           load={load}
         />
-        <div>{out ? <OutsideButton /> : <InsideButtons floors={floors} />}</div>
+        <div className="w-full h-2/3 flex justify-center items-center">
+          {out ? <OutsideButton /> : <InsideButtons floors={floors} />}
+        </div>
       </div>
     </div>
   );
